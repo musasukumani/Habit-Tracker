@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Semantic colour tokens (theme-neutral) ───────────────── */
+:root {
+  --clr-accent:    #534AB7;
+  --clr-accent-lo: #9D97E3;
+  --clr-accent-bg: rgba(83, 74, 183, 0.14);
+  --clr-success:   #4ECBA3;
+  --clr-warn:      #E0A843;
+  --clr-danger:    #E05555;
+  --cell-full:     rgba(29, 158, 117, 0.25);
+  --cell-half:     rgba(186, 117, 23, 0.25);
+  --cell-some:     rgba(200, 60, 60, 0.22);
+}
+
+/* ── Theme tokens ─────────────────────────────────────────── */
+:root {
+  /* Light mode */
+  --bg-base:    #ECEEF5;
+  --bg-card:    #FFFFFF;
+  --bg-subtle:  #F4F5FA;
+  --bg-header:  #FFFFFF;
+  --bg-hover:   rgba(0, 0, 0, 0.045);
+  --bg-muted:   rgba(0, 0, 0, 0.07);
+  --bg-track:   rgba(0, 0, 0, 0.10);
+  --border:     rgba(0, 0, 0, 0.09);
+  --border-hi:  rgba(0, 0, 0, 0.15);
+  --text-1:     #1C1E2D;
+  --text-2:     #64748B;
+  --text-3:     #94A3B8;
+  --text-4:     #CBD5E1;
+  --text-off:   rgba(0, 0, 0, 0.35);
+  --gradient-card: linear-gradient(145deg, #EEF0F9 0%, #E5E8F4 100%);
+}
+
+.dark {
+  --bg-base:    #0F1117;
+  --bg-card:    #1A1D2E;
+  --bg-subtle:  #161927;
+  --bg-header:  #13161F;
+  --bg-hover:   rgba(255, 255, 255, 0.04);
+  --bg-muted:   rgba(255, 255, 255, 0.07);
+  --bg-track:   rgba(255, 255, 255, 0.08);
+  --border:     rgba(255, 255, 255, 0.06);
+  --border-hi:  rgba(255, 255, 255, 0.12);
+  --text-1:     #F0F0F0;
+  --text-2:     #9CA3AF;
+  --text-3:     #6B7280;
+  --text-4:     #4B5563;
+  --text-off:   rgba(255, 255, 255, 0.40);
+  --gradient-card: linear-gradient(145deg, #1A1D2E 0%, #1e2238 100%);
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-1);
+    font-family: 'Space Grotesk', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+}
+
+/* ── Animations ───────────────────────────────────────────── */
+@keyframes popIn {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.habit-pop  { animation: popIn   0.28s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.slide-in   { animation: slideIn 0.2s ease-out; }
+.fade-in    { animation: fadeIn  0.3s ease-out; }
+
+/* ── Number input — hide browser spinners ─────────────────── */
+input[type="number"] { -moz-appearance: textfield; }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* ── Scrollbar ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--bg-track);
+  border-radius: 4px;
+}
