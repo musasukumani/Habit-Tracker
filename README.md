@@ -2,7 +2,7 @@
 
 A gamified daily habit tracker built with React. Track habits across morning and night blocks, earn XP, level up, and review your progress by day, week, and month.
 
-**[Live Demo →](#)** *(add your deployed URL here)*
+**[Live Demo →](https://habit-tracker-pi-sooty.vercel.app/)**
 
 ---
 
